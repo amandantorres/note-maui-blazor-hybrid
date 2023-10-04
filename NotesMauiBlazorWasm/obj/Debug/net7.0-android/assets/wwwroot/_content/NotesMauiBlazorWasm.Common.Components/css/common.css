@@ -1,0 +1,135 @@
+﻿:root{
+    --color-main: #6652fd;
+    --color-main-light:#D8D8D8;
+    --color-main-lighter:#e6e4e4;
+}
+
+html, body{
+    font-family: Ubuntu, Arial, Arial, Helvetica, sans-serif, 'Sans Serif Collection'-serif;
+}
+
+body{
+    background-color: var(--color-main);
+}
+
+.bg-main{
+    background-color: var(--color-main) !important;
+}
+
+.bg-main-light {
+    background-color: var(--color-main-light) !important;
+}
+
+.bg-main-lighter {
+    background-color: var(--color-main-lighter) !important;
+}
+
+.color-main {
+    color: var(--color-main) !important;
+}
+
+.color-main-light {
+    color: var(--color-main-light) !important;
+}
+
+.color-main-lighter {
+    color: var(--color-main-lighter) !important;
+}
+
+.empty-notes-box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.box{
+    background-color: var(--color-main-light);
+    box-shadow: 0 0 5px white;
+    padding: 8px 16px;
+    height: 250px;
+    overflow-y: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all ease-in 0.3s;
+}
+
+    .box:hover{
+        box-shadow: 0 0 10px white;
+        border-radius: 0;
+    }
+
+    .empty-notes-box-wrapper .box{
+        height: 250px;
+        width: 250px;
+    }
+
+.add-note-btn{
+    cursor: pointer;
+    color: black;
+    transition: all ease-in 0.3s;
+}
+
+.add-note-btn > .icon{
+    font-size: 55px;
+    font-weight: bold;
+    padding: 0;
+    opacity: 0.6;
+}
+
+.add-note-btn > .label{
+    font-size: 25px;
+    opacity: 0.6;
+}
+    .add-note-btn:hover > .label, .add-note-btn:hover > .icon {
+        opacity: 1;
+        color: black;
+    }
+
+.btn-xs{
+    padding: .2rem .25rem;
+    font-size: .6rem;
+    border-radius: .15rem;
+}
+
+.col-gap-y{
+    margin-top: var(--bs-gutter-x);
+}
+
+.fullscreen {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.fab {
+    position: fixed;
+    bottom: 0;
+    margin: 10px;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+    z-index: 3;
+    right: 0;
+    background-color: var(--color-main);
+    color: white;
+    padding: 5px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 0 0 5px black;
+    transition: all ease-in 0.2s;
+}
+    .fab:hover, .fab:active {
+        color: white;
+        text-decoration: none;
+        transform: rotate(360deg);
+    }
+
+.page{
+    padding-bottom: 80px
+}

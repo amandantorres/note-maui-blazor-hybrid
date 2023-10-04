@@ -1,0 +1,34 @@
+﻿@page "/"
+@implements IDisposable
+@using System.ComponentModel
+@inject GlobalAppState AppState
+
+<PageTitle>Index</PageTitle>
+
+<div class="mx-auto my-auto">
+    @if (AppState.IsInitializing)
+    {
+        <span>Checking auth state</span>
+    }
+    else if (!string.IsNullOrWhiteSpace(AppState.ErrorMessage))
+    {
+        <h3 class="text-danger">@AppState.ErrorMessage</h3>
+    }
+    else
+    {
+        <p>Redirecting to home page...</p>
+    }
+</div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        AppState.PropertyChanged -= OnAppStateChanged;
+        AppState.PropertyChanged += OnAppStateChanged;
+
+    }
+
+    private void OnAppStateChanged(object? sender, PropertyChangedEventArgs e) => StateHasChanged();
+
+    public void Dispose() => AppState.PropertyChanged -= OnAppStateChanged;
+}
