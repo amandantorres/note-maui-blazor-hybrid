@@ -1,0 +1,163 @@
+﻿@page "/save"
+@page "/save/{id?}"
+
+@inject NavigationManager NavigationManager
+@inject NotesService NotesService
+@inject IAlertService AlertService
+@inject IPlatformService Platform
+
+<EditForm Model="@_model" OnValidSubmit="SaveNoteAsync">
+    <DataAnnotationsValidator />
+    @if (!Platform.IsBrowser)
+    {
+        <div class="maui-navbar text-white">
+            <NavLink href="/home" class="text-white text-decoration-none m-0 p-0">
+                <i class="bx bx-x bx-sm"></i>
+            </NavLink>
+            <h5 class="m-0">@(IsNewNote ? "Add a" : "Edit") Note</h5>
+            @if (_busy)
+            {
+                <button type="button" class="btn btn-default text-white" disabled>
+                    <span class="spinner-border spinner-border-sm"></span>
+                </button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-default text-white">
+                    <i class="bx bx-check bx-sm"></i>
+                </button>
+            }
+        </div>
+    }
+
+    @if (_isFetching)
+    {
+        <Loading LoadingText="Fetching notes..." />
+    }
+    else
+    {
+        var controlBgColor = Platform.IsBrowser ? "bg-light" : "bg-main-lighter";
+        var titleClasList = $"form-control border-0 rounded-0 fs-4 {controlBgColor}";
+        var descptionClasList = $"form-control border-0 rounded-0 fs-5 border-bottom {controlBgColor}";
+        var descptionStyle = Platform.IsBrowser ? "min-height: 150px" : "min-height: 250px";
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                <div class="col-xxl-5 col-xl-6 col-md-8 col-sm-10 @(Platform.IsBrowser? "mx-auto my-auto" : "mt-3") ">
+                    <SaveNoteInner IsNewNote="IsNewNote">
+                        <ChildContent>
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <InputText @bind-Value="_model.Title"
+                                               class="@titleClasList"
+                                               placeholder="Enter note title" />
+                                    <label>Note title...</label>
+                                </div>
+                                <small class="d-block text-danger mt-2">
+                                    <ValidationMessage For="()=> _model.Title" />
+                                </small>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <InputTextArea @bind-Value="_model.Description"
+                                                   class="@descptionClasList"
+                                                   row="5"
+                                                   style="@descptionStyle"
+                                                   placeholder="Enter note description" />
+                                    <label>Note description...</label>
+                                </div>
+                            </div>
+                        </ChildContent>
+                        <FooterContent>
+                            @if (!Platform.IsBrowser)
+                            {
+                                <div class="mb-3 d-grid">
+                                    @if (_busy)
+                                    {
+                                        <button type="button" class="btn btn-primary bg-main disabled" disabled>
+                                            <span class="spinner-border spinner-border-sm"></span>
+                                            saving...
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-primary bg-main">Save</button>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                @if (_busy)
+                                {
+                                    <NavLink href="/home" class="btn btn-default btn-sm disabled">Cancel</NavLink>
+                                    <button type="submit" class="btn btn-sucess btn-sm disabled">
+                                        <span class="spinner-border spinner-border-sm"></span>
+                                        saving...
+                                    </button>
+                                }
+                                else
+                                {
+                                    <NavLink href="/home" class="btn btn-default btn-sm">Cancel</NavLink>
+                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                }
+
+                            }
+                        </FooterContent>
+
+                    </SaveNoteInner>                                                           
+                </div>
+            </div>
+        </div>
+    }
+</EditForm>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    public Guid NoteId => Guid.TryParse(Id, out Guid noteId) ? noteId : Guid.Empty;
+
+    public bool IsNewNote => string.IsNullOrWhiteSpace(Id) || NoteId == Guid.Empty;
+
+    private Note _model = new();
+    private bool _busy, _isFetching;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!IsNewNote)
+        {
+            _isFetching = true;
+            var note = await NotesService.GetNoteAsync(NoteId);
+            if (note is null)
+            {
+                await AlertService.AlertAsync("Note does not exist.", "Not Found");
+                NavigationManager.NavigateTo("/home", replace: true);
+                return;
+            }
+            _model = note;
+            _isFetching = false;
+        }
+    }
+
+    private async Task SaveNoteAsync()
+    {
+        try
+        {
+            _busy = true;
+            if (IsNewNote)
+            {
+                await NotesService.AddNoteAsync(_model);
+            }
+            else
+            {
+                await NotesService.UpdateNoteAsync(_model);
+            }
+            //await Task.Delay(2500);
+            NavigationManager.NavigateTo("/home");
+        }
+        catch (Exception ex)
+        {
+            await AlertService.AlertAsync($"Error in saving note. Please try again. \n {ex.Message}", "Error");
+            _busy = false;
+        }
+    }
+}

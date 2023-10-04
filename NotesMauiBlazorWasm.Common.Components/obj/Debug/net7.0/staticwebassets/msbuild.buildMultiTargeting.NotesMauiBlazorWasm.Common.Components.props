@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\NotesMauiBlazorWasm.Common.Components.props" />
+</Project>

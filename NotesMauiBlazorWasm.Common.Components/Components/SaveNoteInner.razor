@@ -1,0 +1,34 @@
+﻿@inject IPlatformService Platform
+
+@if (Platform.IsBrowser)
+{
+
+
+<div class="card">
+        <div class="card-header">
+            <h5 class="m-0">@(IsNewNote ? "Add a" : "Edit") Note</h5>
+        </div>
+        <div class="card-body">
+            @ChildContent
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            @FooterContent
+        </div>
+    </div>
+}
+else
+{
+    <div class="mobile-save-note-form-card">
+        @ChildContent
+        @FooterContent
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool IsNewNote { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment FooterContent { get; set; }
+}

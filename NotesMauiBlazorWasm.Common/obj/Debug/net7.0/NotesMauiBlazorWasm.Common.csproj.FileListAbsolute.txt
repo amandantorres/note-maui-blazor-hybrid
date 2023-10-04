@@ -1,0 +1,11 @@
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\bin\Debug\net7.0\NotesMauiBlazorWasm.Common.deps.json
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\bin\Debug\net7.0\NotesMauiBlazorWasm.Common.dll
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\bin\Debug\net7.0\NotesMauiBlazorWasm.Common.pdb
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.AssemblyInfoInputs.cache
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.AssemblyInfo.cs
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.csproj.CoreCompileInputs.cache
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.dll
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\refint\NotesMauiBlazorWasm.Common.dll
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.pdb
+D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common\obj\Debug\net7.0\ref\NotesMauiBlazorWasm.Common.dll

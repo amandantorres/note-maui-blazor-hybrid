@@ -1,0 +1,60 @@
+﻿@inject IPlatformService PlatformService
+
+<div class="fullscreen d-flex">
+    <div class="n-overlay bg-main fullscreen"></div>
+    <div class="mx-auto my-auto box n-modal">
+        <button type="button" class="btn btn-xs btn-danger align-self-end" @onclick="OnClose">
+            <i class="bx bx-x"></i>
+        </button>
+        <p class="fs-5">@Note.Title</p>
+        @if (!string.IsNullOrWhiteSpace(Note.Description))
+        {
+            <p class="fs-6">@Note.Description</p>
+        }
+        <hr />
+        <div class="d-flex justify-content around">
+            <button type="button" class="btn btn-sm flex-column" @onclick="CopyAsync">
+                <i class="bx bx-copy bx-sm"></i>
+                <span>Copy</span>
+            </button>
+            @if (!PlatformService.IsBrowser)
+            {
+                <button type="button" class="btn btn-sm flex-column" @onclick="ShareAsync">
+                    <i class="bx bx-share bx-sm"></i>
+                    <span>Share</span>
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .n-modal{
+        min-width:250px; 
+    }
+    .n-overlay {
+        opacity: 0.5;
+    }
+</style>
+
+@code {
+    [Parameter, EditorRequired]
+    public Note Note { get; set; }
+
+    [Parameter]
+    public EventCallback OnClose { get; set; }
+
+    private async Task CopyAsync()
+    {
+        await PlatformService.CopyToClipboardAsync($"{Note.Title}\n{Note.Description}");
+    }
+
+    private async Task ShareAsync()
+    {
+        if (!PlatformService.IsBrowser)
+        {
+            await PlatformService.ShareAsync($"{Note.Title}\n{Note.Description}");
+        }
+    }
+
+}

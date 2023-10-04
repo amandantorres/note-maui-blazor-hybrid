@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\NotesMauiBlazorWasm.Common.Components.props" />
+</Project>
