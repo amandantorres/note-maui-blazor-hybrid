@@ -50,12 +50,10 @@ a, .btn-link {
 }
 
 .valid.modified:not([type=checkbox]) {
-/*    outline: 1px solid #26b050;*/
     border-color: #26b050;
 }
 
 .invalid {
-    /*    outline: 1px solid red;*/
     border-color: red;
 }
 
@@ -110,4 +108,8 @@ a, .btn-link {
     .flex-column, .navbar-brand {
         padding-left: env(safe-area-inset-left);
     }
+}
+.fab {
+    width: 50px;
+    border-radius: 50%;
 }

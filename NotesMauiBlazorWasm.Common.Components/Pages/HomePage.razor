@@ -1,9 +1,11 @@
 ﻿@page "/home"
- 
+
 @inject NavigationManager NavigationManager
 @inject NotesService NotesService
 @inject IAlertService AlertService
 @inject IPlatformService Platform
+
+<PageTitle>Home</PageTitle>
 
 @if (!Platform.IsBrowser)
 {
@@ -14,6 +16,14 @@
         <NavLink href="/save" class="btn btn-default text-white m-0 fs-1">+</NavLink>
     </div>
 }
+
+<NavLink href="/save" class="text-decoration-none fab d-flex justify-content-center align-items-center">
+    <span>+</span>
+    @if (Platform.IsBrowser)
+    {
+        <small class="fs-6 fw-normal ms-2">Add a Note</small>
+    }
+</NavLink>
 <div class="page">
     <div class="container-fluid">
         <div class="col-11 mx-auto">
@@ -56,7 +66,7 @@
         }
         else
         {
-            <div class="container-fluid">
+            <div class="@(Platform.IsBrowser ? "container" : "container-fluid")">
                 <div class="row">
                     @foreach (var note in _notes)
                     {
@@ -67,10 +77,15 @@
                                     <h6 class="m-0 text-truncate" @onclick="() => ViewNote(note)">@note.Title</h6>
                                     <hr />
                                 </div>
-                                <div class="flex-grow-1">
+                                <div class="flex-grow-1" style="overflow-y: auto">
                                     <div class="note-description-wrapper">
                                         @if (!string.IsNullOrWhiteSpace(note.Description))
                                         {
+                                            var description = note.Description.Length > 100 ? $"{note.Description[0..100]}.." : note.Description;
+                                            if(!Platform.IsBrowser && mainColClass == "col-12")
+                                            {
+                                                description = note.Description;
+                                            }
                                             <p style="fonte-site: 14px;" @onclick="() => ViewNote(note)"> @note.Description</p>
                                         }
                                         else
@@ -83,9 +98,9 @@
                                     </div>
                                 </div>
                                 <div class="actions">
-                                    <hr/>
+                                    <hr />
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <small class="d-flex gap-2 align-items-center"  style="font-size: 12px;">
+                                        <small class="d-flex gap-2 align-items-center" style="font-size: 12px;">
                                             <i class="bx bx-time-five"></i>
                                             <small>
                                                 @(note.ModifiedOn != DateTime.MinValue ? note.ModifiedOn.ToString(AppConstants.DateTimeFormat) : note.CreatedOn.ToString(AppConstants.DateTimeFormat))
@@ -121,11 +136,11 @@
                     </div>
                 </div>
             </div>
-            }
         }
-    </div>
+    }
+</div>
 
-@if(_viewingNote is not null)
+@if (_viewingNote is not null)
 {
     <ViewNoteDetails Note="_viewingNote" OnClose="() => ViewNote(null)" />
 }
@@ -158,7 +173,7 @@
     {
         try
         {
-            //await Task.Delay(5000);            
+            //await Task.Delay(5000);
             _notes = await NotesService.GetAllNotesAsync();
         }
         catch (Exception ex)
@@ -172,9 +187,9 @@
         }
     }
 
-    private void ToggleLayout( string btnClass)
+    private void ToggleLayout(string btnClass)
     {
-        if(mainColClass != btnClass)
+        if (mainColClass != btnClass)
         {
             mainColClass = btnClass;
         }
@@ -188,7 +203,7 @@
             const string EditNote = "Edit Note";
             var action = await Platform.ChooseFromOptions("Note Actions", DeleteNote, EditNote);
 
-            if(action is not null)
+            if (action is not null)
             {
                 switch (action)
                 {
@@ -205,7 +220,7 @@
 
     private async Task DeleteNoteAsync(Guid noteId)
     {
-        if(await AlertService.ConfirmAsync(message: "Do you really want do delete this note?", title: "Confirm Delete?", okButton:"Yes", cancelButton:"No"))
+        if (await AlertService.ConfirmAsync(message: "Do you really want do delete this note?", title: "Confirm Delete?", okButton: "Yes", cancelButton: "No"))
         {
             _isBusy = true;
             _busyText = "Deleting note...";
@@ -216,7 +231,7 @@
                 StateHasChanged();
                 await LoadNotesAsync();
             }
-            catch( Exception ex)
+            catch (Exception ex)
             {
                 await AlertService.AlertAsync($"Error in delete note. \n {ex.Message}", "Error");
             }

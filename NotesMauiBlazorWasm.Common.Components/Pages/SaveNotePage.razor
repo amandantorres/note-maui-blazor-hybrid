@@ -6,6 +6,8 @@
 @inject IAlertService AlertService
 @inject IPlatformService Platform
 
+<PageTitle>Save Note</PageTitle>
+
 <EditForm Model="@_model" OnValidSubmit="SaveNoteAsync">
     <DataAnnotationsValidator />
     @if (!Platform.IsBrowser)
@@ -42,7 +44,7 @@
         var descptionStyle = Platform.IsBrowser ? "min-height: 150px" : "min-height: 250px";
         <div class="container-fluid">
             <div class="row min-vh-100">
-                <div class="col-xxl-5 col-xl-6 col-md-8 col-sm-10 @(Platform.IsBrowser? "mx-auto my-auto" : "mt-3") ">
+                <div class="col-xxl-5 col-xl-6 col-md-8 col-sm-10 mx-auto @(Platform.IsBrowser? "my-auto" : "mt-3") ">
                     <SaveNoteInner IsNewNote="IsNewNote">
                         <ChildContent>
                             <div class="mb-3">

@@ -1,14 +1,6 @@
 {
   "Files": [
     {
-      "Id": "D:\\Documentos\\BitCube\\Estudo Blazor Hybrid\\MauiNoteVisualStudio\\NotesMauiBlazorWasm\\NotesMauiBlazorWasm.Common.Components\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\NotesMauiBlazorWasm.Common.Components.bundle.scp.css",
-      "PackagePath": "staticwebassets\\NotesMauiBlazorWasm.Common.Components.bundle.scp.css"
-    },
-    {
-      "Id": "D:\\Documentos\\BitCube\\Estudo Blazor Hybrid\\MauiNoteVisualStudio\\NotesMauiBlazorWasm\\NotesMauiBlazorWasm.Common.Components\\wwwroot\\background.png",
-      "PackagePath": "staticwebassets\\background.png"
-    },
-    {
       "Id": "D:\\Documentos\\BitCube\\Estudo Blazor Hybrid\\MauiNoteVisualStudio\\NotesMauiBlazorWasm\\NotesMauiBlazorWasm.Common.Components\\wwwroot\\css\\animations.css",
       "PackagePath": "staticwebassets\\css\\animations.css"
     },
@@ -27,10 +19,6 @@
     {
       "Id": "D:\\Documentos\\BitCube\\Estudo Blazor Hybrid\\MauiNoteVisualStudio\\NotesMauiBlazorWasm\\NotesMauiBlazorWasm.Common.Components\\wwwroot\\css\\transformations.css",
       "PackagePath": "staticwebassets\\css\\transformations.css"
-    },
-    {
-      "Id": "D:\\Documentos\\BitCube\\Estudo Blazor Hybrid\\MauiNoteVisualStudio\\NotesMauiBlazorWasm\\NotesMauiBlazorWasm.Common.Components\\wwwroot\\exampleJsInterop.js",
-      "PackagePath": "staticwebassets\\exampleJsInterop.js"
     },
     {
       "Id": "D:\\Documentos\\BitCube\\Estudo Blazor Hybrid\\MauiNoteVisualStudio\\NotesMauiBlazorWasm\\NotesMauiBlazorWasm.Common.Components\\wwwroot\\fonts\\boxicons.eot",

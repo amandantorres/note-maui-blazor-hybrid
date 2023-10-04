@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Documentos/BitCube/Estudo Blazor Hybrid/MauiNoteVisualStudio/NotesMauiBlazorWasm/NotesMauiBlazorWasm.Common.Components/Pages/InitPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5pdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Documentos/BitCube/Estudo Blazor Hybrid/MauiNoteVisualStudio/NotesMauiBlazorWasm/NotesMauiBlazorWasm.Common.Components/Pages/SaveNotePage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2F2ZU5vdGVQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -39,7 +43,3 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/Documentos/BitCube/Estudo Blazor Hybrid/MauiNoteVisualStudio/NotesMauiBlazorWasm/NotesMauiBlazorWasm.Common.Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Documentos/BitCube/Estudo Blazor Hybrid/MauiNoteVisualStudio/NotesMauiBlazorWasm/NotesMauiBlazorWasm.Common.Components/Component1.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50MS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-dmza4xzzer

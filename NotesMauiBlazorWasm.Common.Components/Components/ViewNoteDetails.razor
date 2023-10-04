@@ -1,8 +1,8 @@
 ﻿@inject IPlatformService PlatformService
 
 <div class="fullscreen d-flex">
-    <div class="n-overlay bg-main fullscreen"></div>
-    <div class="mx-auto my-auto box n-modal">
+    <div class="bg-main fullscreen"></div>
+    <div class="n-overlay mx-auto my-auto box n-modal">
         <button type="button" class="btn btn-xs btn-danger align-self-end" @onclick="OnClose">
             <i class="bx bx-x"></i>
         </button>
@@ -29,9 +29,10 @@
 </div>
 
 <style type="text/css">
-    .n-modal{
-        min-width:250px; 
+    .n-modal {
+        min-width: 250px;
     }
+
     .n-overlay {
         opacity: 0.5;
     }

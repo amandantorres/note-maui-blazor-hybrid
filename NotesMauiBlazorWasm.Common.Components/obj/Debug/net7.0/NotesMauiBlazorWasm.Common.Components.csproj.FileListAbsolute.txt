@@ -16,9 +16,7 @@ D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorW
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\staticwebassets.pack.json
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\staticwebassets.build.json
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\staticwebassets.development.json
-D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\scopedcss\Component1.razor.rz.scp.css
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\scopedcss\bundle\NotesMauiBlazorWasm.Common.Components.styles.css
-D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\scopedcss\projectbundle\NotesMauiBlazorWasm.Common.Components.bundle.scp.css
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.Components.csproj.CopyComplete
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\NotesMauiBlazorWasm.Common.Components.dll
 D:\Documentos\BitCube\Estudo Blazor Hybrid\MauiNoteVisualStudio\NotesMauiBlazorWasm\NotesMauiBlazorWasm.Common.Components\obj\Debug\net7.0\refint\NotesMauiBlazorWasm.Common.Components.dll

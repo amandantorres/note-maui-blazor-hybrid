@@ -1,5 +1,6 @@
 ﻿@inject NavigationManager NavigationManager
 @inject AuthService AuthService
+@inject GlobalAppState AppState
 
 <CascadingValue Name="@AppConstants.StorageKeys.Username" Value="@_name">
     <Router AppAssembly="@typeof(Main).Assembly" AdditionalAssemblies="new []{typeof(HomePage).Assembly}">
@@ -11,7 +12,7 @@
             <LayoutView Layout="@typeof(MainLayout)">
                 <p role="alert">Sorry, there's nothing at this address.</p>
             </LayoutView>
-        </NotFound> 
+        </NotFound>
     </Router>
 </CascadingValue>
 
@@ -22,8 +23,10 @@
     protected async override Task OnInitializedAsync()
     {
         var name = await AuthService.GetUsername();
+        AppState.IsInitializing = false;
         if (string.IsNullOrWhiteSpace(name))
         {
+            AppState.ErrorMessage = "Your name is required to use the app.";
             return;
         }
         _name = name;

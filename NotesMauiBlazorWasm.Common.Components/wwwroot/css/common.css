@@ -107,3 +107,29 @@ body{
     top: 0;
     bottom: 0;
 }
+.fab {
+    position: fixed;
+    bottom: 0;
+    margin: 10px;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+    z-index: 3;
+    right: 0;
+    background-color: var(--color-main);
+    color: white;
+    padding: 5px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 0 0 5px black;
+    transition: all ease-in 0.2s;
+}
+    .fab:hover, .fab:active {
+        color: white;
+        text-decoration: none;
+        transform: rotate(360deg);
+    }
+
+.page{
+    padding-bottom: 80px
+}

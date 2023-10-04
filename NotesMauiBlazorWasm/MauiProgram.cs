@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using NotesMauiBlazorWasm.Common.Interfaces;
 using NotesMauiBlazorWasm.Common.Services;
-using NotesMauiBlazorWasm.Data;
+using NotesMauiBlazorWasm.Common.States;
 using NotesMauiBlazorWasm.Services;
 
 namespace NotesMauiBlazorWasm
@@ -21,6 +21,7 @@ namespace NotesMauiBlazorWasm
                 .UseMauiCommunityToolkit();
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddSingleton<GlobalAppState>();
             builder.Services.AddTransient<AuthService>();
             builder.Services.AddSingleton<IAlertService, AlertService>();
             builder.Services.AddSingleton<IStorageService, StorageService>();
@@ -31,9 +32,6 @@ namespace NotesMauiBlazorWasm
 		builder.Services.AddBlazorWebViewDeveloperTools();
 		builder.Logging.AddDebug();
 #endif
-
-            builder.Services.AddSingleton<WeatherForecastService>();
-
             return builder.Build();
         }
     }
